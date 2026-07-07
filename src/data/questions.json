@@ -1,0 +1,73 @@
+[
+  {
+    "id": "SEC-FON-001",
+    "niveau": "Seconde",
+    "chapitre": "Fonctions",
+    "competence": "Calculer une image",
+    "difficulte": "Facile",
+    "question": "Soit f(x)=2x+3. Quelle est l'image de 5 ?",
+    "reponses": [
+      "8",
+      "10",
+      "13",
+      "15"
+    ],
+    "bonneReponse": 2,
+    "explication": "f(5)=2×5+3=13.",
+    "exerciceLie": "https://maths-lycee.fr"
+  },
+  {
+    "id": "PRE-SECOND-001",
+    "niveau": "Première",
+    "chapitre": "Second degré",
+    "competence": "Identifier une équation du second degré",
+    "difficulte": "Facile",
+    "question": "Quel est le degré du polynôme x²+3x-5 ?",
+    "reponses": [
+      "1",
+      "2",
+      "3",
+      "0"
+    ],
+    "bonneReponse": 1,
+    "explication": "Le terme de plus haut degré est x² donc le degré est 2.",
+    "exerciceLie": "https://maths-lycee.fr/premiere-specialite-maths/"
+  },
+  
+{
+  "id": "SEC-FON-002",
+  "niveau": "Seconde",
+  "chapitre": "Fonctions",
+  "competence": "Lire une image",
+  "difficulte": "Facile",
+  "question": "Si f(3)=7, alors 7 est :",
+  "reponses": [
+    "un antécédent de 3",
+    "l'image de 3",
+    "la fonction",
+    "le coefficient directeur"
+  ],
+  "bonneReponse": 1,
+  "explication": "7 est l'image de 3 par la fonction f.",
+  "exerciceLie": "https://maths-lycee.fr"
+},
+
+{
+  "id": "PRE-SUITES-001",
+  "niveau": "Première",
+  "chapitre": "Suites",
+  "competence": "Reconnaître une suite",
+  "difficulte": "Facile",
+  "question": "Une suite arithmétique de raison 3 augmente chaque terme de :",
+  "reponses": [
+    "1",
+    "2",
+    "3",
+    "4"
+  ],
+  "bonneReponse": 2,
+  "explication": "La raison d'une suite arithmétique correspond à l'écart entre deux termes consécutifs.",
+  "exerciceLie": "https://maths-lycee.fr/premiere-specialite-maths/"
+}
+  
+]

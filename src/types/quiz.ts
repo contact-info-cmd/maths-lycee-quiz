@@ -1,12 +1,19 @@
-function QuizConfig() {
-
-  return (
-    <div>
-      <h2>Créer un QCM</h2>
-      <p>Configuration du quiz</p>
-    </div>
-  );
-
+export interface Chapitre {
+  id: string;
+  niveau: string;
+  chapitre: string;
+  url: string;
 }
 
-export default QuizConfig;
+export interface Question {
+  id: string;
+  niveau: string;
+  chapitre: string;
+  competence: string;
+  difficulte: string;
+  question: string;
+  reponses: string[];
+  bonneReponse: number;
+  explication: string;
+  exerciceLie: string;
+}
