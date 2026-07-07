@@ -1,0 +1,26 @@
+[
+  {
+    "id": "SEC-FON",
+    "niveau": "Seconde",
+    "chapitre": "Fonctions",
+    "url": "https://maths-lycee.fr"
+  },
+  {
+    "id": "SEC-PROB",
+    "niveau": "Seconde",
+    "chapitre": "Probabilités",
+    "url": "https://maths-lycee.fr"
+  },
+  {
+    "id": "PRE-SECOND",
+    "niveau": "Première",
+    "chapitre": "Second degré",
+    "url": "https://maths-lycee.fr/premiere-specialite-maths/"
+  },
+  {
+    "id": "PRE-DERIV",
+    "niveau": "Première",
+    "chapitre": "Dérivation",
+    "url": "https://maths-lycee.fr/premiere-specialite-maths/"
+  }
+]
