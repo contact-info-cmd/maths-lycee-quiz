@@ -1,7 +1,11 @@
 import { useState } from "react";
 import questions from "../data/questions.json";
 
-function Quiz() {
+interface Props {
+  nombreQuestions:number;
+}
+
+function Quiz({nombreQuestions}:Props) {
 
   const [questionIndex, setQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -37,7 +41,7 @@ function Quiz() {
     <div className="quiz-box">
 
       <h2>
-        Question {questionIndex + 1} / {questions.length}
+        Question {questionIndex + 1} / {nombreQuestions}
       </h2>
 
       <p>

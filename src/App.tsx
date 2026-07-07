@@ -7,6 +7,15 @@ import "./index.css";
 function App() {
 
   const [demarre, setDemarre] = useState(false);
+  const [nombreQuestions, setNombreQuestions] = useState(5);
+
+
+  function lancerQuiz(nombre:number){
+
+    setNombreQuestions(nombre);
+    setDemarre(true);
+
+  }
 
 
   return (
@@ -21,23 +30,16 @@ function App() {
       </header>
 
 
-      {!demarre ? (
+      {!demarre ?
 
-        <div className="quiz-box">
+        <QuizConfig lancerQuiz={lancerQuiz}/>
 
-          <QuizConfig />
+        :
 
-          <button onClick={() => setDemarre(true)}>
-            Commencer le QCM
-          </button>
+        <Quiz nombreQuestions={nombreQuestions}/>
 
-        </div>
+      }
 
-      ) : (
-
-        <Quiz />
-
-      )}
 
     </main>
 
