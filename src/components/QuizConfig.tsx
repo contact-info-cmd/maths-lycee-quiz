@@ -1,9 +1,14 @@
 import { useState } from "react";
 import chapitres from "../data/chapitres.json";
 
-function QuizConfig() {
+interface Props {
+  lancerQuiz: (nombre: number) => void;
+}
+
+function QuizConfig({ lancerQuiz }: Props) {
 
   const [niveau, setNiveau] = useState("Seconde");
+  const [nombre, setNombre] = useState(5);
 
   const chapitresFiltres = chapitres.filter(
     chapitre => chapitre.niveau === niveau
@@ -47,14 +52,17 @@ function QuizConfig() {
 
       <label>Nombre de questions</label>
 
-      <select>
-        <option>5</option>
-        <option>10</option>
-        <option>20</option>
+      <select
+        value={nombre}
+        onChange={(e) => setNombre(Number(e.target.value))}
+      >
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
       </select>
 
 
-      <button>
+      <button onClick={() => lancerQuiz(nombre)}>
         Commencer le QCM
       </button>
 
