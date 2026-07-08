@@ -48,7 +48,7 @@ const [listeQuestions] = useState(
   const [validee, setValidee] = useState(false);
  
 const [tempsEcoule, setTempsEcoule] = useState(0);
-
+const [reponseChoisie, setReponseChoisie] = useState<number | null>(null);
 
 // Chronomètre en temps écoulé
 useEffect(() => {
@@ -90,42 +90,43 @@ if (listeQuestions.length === 0) {
 const question = listeQuestions[questionIndex];
 
 
+function choisirReponse(index:number) {
 
-  function choisirReponse(index: number) {
-
-    if (validee) return;
-
-
-    if (index === question.bonneReponse) {
-
-      setScore(score + 1);
-
-    }
+  if (validee) return;
 
 
-    setValidee(true);
+  setReponseChoisie(index);
+
+
+  if (index === question.bonneReponse) {
+
+    setScore(score + 1);
 
   }
 
 
+  setValidee(true);
 
-  function questionSuivante() {
-
-    setValidee(false);
+}
 
 
-    if (questionIndex < listeQuestions.length - 1) {
+function questionSuivante() {
 
-      setQuestionIndex(questionIndex + 1);
+  setValidee(false);
+  setReponseChoisie(null);
 
-    }
-    else {
+  if(questionIndex < listeQuestions.length - 1){
 
-      setTermine(true);
-
-    }
+    setQuestionIndex(questionIndex + 1);
 
   }
+ else {
+
+  setTermine(true);
+
+}
+
+}
 
 
 
@@ -217,10 +218,25 @@ const question = listeQuestions[questionIndex];
 {validee && (
 
   <div>
+<p>
+  {reponseChoisie === question.bonneReponse
+    ? "✅ Bonne réponse"
+    : "❌ Réponse incorrecte"}
+</p>
 
-    <p>
-      Correction :
-    </p>
+
+<p>
+  Votre réponse :
+  {" "}
+  {question.reponses[reponseChoisie ?? 0]}
+</p>
+
+
+<p>
+  Bonne réponse :
+  {" "}
+  {question.reponses[question.bonneReponse]}
+</p>
 
     <p>
       Explication :
