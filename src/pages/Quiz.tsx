@@ -3,6 +3,9 @@ import questions from "../data/questions.json";
 
 
 interface Props {
+  niveau: string;
+  chapitre: string;
+  difficulte: string;
   nombreQuestions: number;
 }
 
@@ -15,39 +18,76 @@ function melangerQuestions(liste: any[]) {
 }
 
 
-function Quiz({ nombreQuestions }: Props) {
+function Quiz({
+  niveau,
+  chapitre,
+  difficulte,
+  nombreQuestions
+}: Props) {
 
+const [listeQuestions] = useState(
 
-  const [listeQuestions] = useState(
-    melangerQuestions(questions)
-      .slice(0, nombreQuestions)
-  );
+  melangerQuestions(
+
+    questions.filter(question =>
+
+      question.niveau === niveau &&
+      question.chapitre === chapitre &&
+      question.difficulte === difficulte
+
+    )
+
+  ).slice(0, nombreQuestions)
+
+);
 
 
   const [questionIndex, setQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [termine, setTermine] = useState(false);
   const [validee, setValidee] = useState(false);
-  const [tempsEcoule, setTempsEcoule] = useState(0);
+ 
+const [tempsEcoule, setTempsEcoule] = useState(0);
 
 
-  const question = listeQuestions[questionIndex];
+// Chronomètre en temps écoulé
+useEffect(() => {
+
+  const timer = setInterval(() => {
+
+    setTempsEcoule(t => t + 1);
+
+  }, 1000);
 
 
-  // Chronomètre en temps écoulé
-  useEffect(() => {
-
-    const timer = setInterval(() => {
-
-      setTempsEcoule(t => t + 1);
-
-    }, 1000);
+  return () => clearInterval(timer);
 
 
-    return () => clearInterval(timer);
+}, []);
 
 
-  }, []);
+if (listeQuestions.length === 0) {
+
+  return (
+
+    <div className="quiz-box">
+
+      <h2>
+        Aucun exercice trouvé
+      </h2>
+
+      <p>
+        Modifiez vos critères de recherche.
+      </p>
+
+    </div>
+
+  );
+
+}
+
+
+const question = listeQuestions[questionIndex];
 
 
 
