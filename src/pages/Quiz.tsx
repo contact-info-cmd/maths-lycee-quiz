@@ -218,31 +218,50 @@ function questionSuivante() {
 {validee && (
 
   <div>
-<p>
-  {reponseChoisie === question.bonneReponse
-    ? "✅ Bonne réponse"
-    : "❌ Réponse incorrecte"}
-</p>
+
+    <p>
+      {reponseChoisie === question.bonneReponse
+        ? "✅ Bonne réponse"
+        : "❌ Réponse incorrecte"}
+    </p>
 
 
-<p>
-  Votre réponse :
-  {" "}
-  {question.reponses[reponseChoisie ?? 0]}
-</p>
+    <p>
+      Votre réponse :
+      {" "}
+      {question.reponses[reponseChoisie ?? 0]}
+    </p>
 
 
-<p>
-  Bonne réponse :
-  {" "}
-  {question.reponses[question.bonneReponse]}
-</p>
+    <p>
+      Bonne réponse :
+      {" "}
+      {question.reponses[question.bonneReponse]}
+    </p>
+
 
     <p>
       Explication :
       {" "}
       {question.explication}
     </p>
+
+
+    {question.exerciceLie && (
+
+      <p>
+
+        <a
+          href={question.exerciceLie}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          🔗 Exercice similaire sur maths-lycee.fr
+        </a>
+
+      </p>
+
+    )}
 
 
     <button onClick={questionSuivante}>
